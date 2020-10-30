@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: local('Open Sans'), url('./assets/fonts/OpenSans/OpenSans-Regular.ttf') format('truetype');
+    src: local('Open Sans Light'), url('./assets/fonts/OpenSans/OpenSans-Light.ttf') format('truetype');
+    src: local('Open Sans Bold'), url('./assets/fonts/OpenSans/OpenSans-Bold.ttf') format('truetype');
+}
+
+html {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: 400;
+}
+
+.white-filter {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(157deg) brightness(107%) contrast(102%);
+}
+
+.black-filter {
+    filter: invert(0%) sepia(83%) saturate(7500%) hue-rotate(210deg) brightness(115%) contrast(115%);
+}
+
+.btn {
+    min-width: 100px;
+    min-height: 3em;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 1.1rem;
+    color: white;
+    cursor: pointer;
+}
+
+.vignette:after {
+    content: '';
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0px 0px 150px 60px rgb(0, 0, 0);
+}
+
+.vignette {
+    img {
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.container {
+    width: 80%;
+    max-width: 800px;
+    height: 70%;
+    margin: 0 auto;
+    display: flex;
+}
+
+#app {
+    height: 100vh;
+
+    #header {
+        width: 100%;
+        height: 6em;
+
+        #header-nav {
+            width: 100%;
+            height: 100%;
+            display: flex;
+
+            ul {
+                display: flex;
+                list-style: none;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                height: 100%;
+                margin: 0 1.5em 0 1.5em;
+
+                li {
+                    #right-side-nav {
+                        display: flex;
+                        width: 100%;
+
+                        img {
+                            width: 41px;
+                            height: 41px;
+                            margin-left: 1em;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #preview {
+        height: 50vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        #preview-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            #preview-controls {
+                margin-top: 3em;
+                display: flex;
+
+                button {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+
+                    img {
+                        width: 21px;
+                        height: 21px;
+                        margin-left: 0.4em;
+                    }
+                }
+            }
+        }
+    }
+}

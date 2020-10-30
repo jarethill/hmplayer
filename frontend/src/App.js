@@ -1,6 +1,7 @@
 import React, { useReducer, useEffect } from 'react';
 import Header from './components/Header';
-import './App.css';
+import Preview from './components/Preview';
+import './App.scss';
 
 const themes = {
     dark: {
@@ -8,17 +9,17 @@ const themes = {
         secondaryColor: '#BA274A',
         backgroundColor: '#220C10',
         primaryText: '#fff',
+        // Css filters are used to change img tagged SVG's to their appropriate color. filterClass's value is the
+        // class name to apply. See App.scss for filter class declarations
+        filterClass: 'white-filter',
     },
     // White theme not decided yet, values are currently used for debugging
     light: {
         backgroundColor: '#fff',
         primaryColor: 'blue',
         primaryText: '#000',
+        filterClass: 'black-filter',
     },
-};
-
-const appStyles = {
-    height: '100vh',
 };
 
 function reducer(state, action) {
@@ -46,8 +47,9 @@ function App() {
 
     return (
         <ThemeContext.Provider value={{ theme, dispatch }}>
-            <section id='app' style={appStyles}>
+            <section id='app'>
                 <Header />
+                <Preview />
             </section>
         </ThemeContext.Provider>
     );
