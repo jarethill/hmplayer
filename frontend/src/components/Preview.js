@@ -4,7 +4,7 @@ import playCircle from '../assets/svg/play-circle.svg';
 import plusCircle from '../assets/svg/plus-circle.svg';
 
 // Placeholder image, to be removed after backend can send image data
-import Rambo from '../assets/First_blood_poster.jpg';
+import Rambo from '../assets/mock-images/rambo-bg.jpg';
 
 export default function Preview() {
     const { theme, dispatch } = useContext(ThemeContext);
@@ -17,7 +17,7 @@ export default function Preview() {
                 <img src={Rambo} alt='Rambo' />
             </div>
 
-            <div id='preview-container' className='container' style={{ zIndex: 999 }}>
+            <div id='preview-container' className='container'>
                 {/* Movie Title */}
                 <h2 style={{ color: theme.primaryText }}>Rambo First Blood</h2>
 

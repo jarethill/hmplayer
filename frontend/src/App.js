@@ -1,6 +1,7 @@
 import React, { useReducer, useEffect } from 'react';
 import Header from './components/Header';
 import Preview from './components/Preview';
+import MediaContainer from './components/MediaContainer';
 import './App.scss';
 
 const themes = {
@@ -50,6 +51,7 @@ function App() {
             <section id='app'>
                 <Header />
                 <Preview />
+                <MediaContainer />
             </section>
         </ThemeContext.Provider>
     );
