@@ -6,9 +6,9 @@
 
 @font-face {
     font-family: 'Open Sans';
-    src: local('Open Sans'), url('./assets/fonts/OpenSans/OpenSans-Regular.ttf') format('truetype');
-    src: local('Open Sans Light'), url('./assets/fonts/OpenSans/OpenSans-Light.ttf') format('truetype');
-    src: local('Open Sans Bold'), url('./assets/fonts/OpenSans/OpenSans-Bold.ttf') format('truetype');
+    src: local('Open Sans'), url('../assets/fonts/OpenSans/OpenSans-Regular.ttf') format('truetype');
+    src: local('Open Sans Light'), url('../assets/fonts/OpenSans/OpenSans-Light.ttf') format('truetype');
+    src: local('Open Sans Bold'), url('../assets/fonts/OpenSans/OpenSans-Bold.ttf') format('truetype');
 }
 
 html {

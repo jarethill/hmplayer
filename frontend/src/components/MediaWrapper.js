@@ -108,9 +108,9 @@ export default function MediaWrapper() {
             {/* Vertical swiper, used to browse categories */}
             <Swiper
                 direction={'vertical'}
-                spaceBetween={25}
-                slidesPerView={1}
-                loop={true}
+                spaceBetween={0}
+                slidesPerView={'auto'}
+                loop={false}
                 scrollbar={{ draggable: true }}
             >
                 {categories.map((category) => (

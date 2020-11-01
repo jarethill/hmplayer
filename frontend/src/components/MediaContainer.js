@@ -7,20 +7,16 @@ import { ThemeContext } from '../App';
 SwiperCore.use([Navigation]);
 
 function updateActiveSlideBorder(e) {
-    const activeSlide = e.slides[e.activeIndex];
+    // Removes border from every slide & adds border to the actively selected slide
+    // Needed to be looped for each slide because Swiper lets you move more than one slide at a time, causing
+    // the old border to not be removed when only removing previous & next slide's border
+    e.slides.forEach((slide, index) => {
+        slide.style.border = '';
 
-    const previousSlide = e.slides[e.activeIndex - 1];
-    const nextSlide = e.slides[e.activeIndex + 1];
-
-    activeSlide.style.border = `1px solid ${e.borderColor}`;
-
-    if (previousSlide) {
-        previousSlide.style.border = '';
-    }
-
-    if (nextSlide) {
-        nextSlide.style.border = '';
-    }
+        if (index === e.activeIndex) {
+            slide.style.border = `1px solid ${e.borderColor}`;
+        }
+    });
 }
 
 export default function MediaContainer({ media, category }) {

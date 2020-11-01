@@ -3,7 +3,8 @@ import Header from './components/Header';
 import Preview from './components/Preview';
 import MediaWrapper from './components/MediaWrapper';
 
-import './App.scss';
+import './styles/App.scss';
+import './styles/MediaQueries.scss';
 
 import 'swiper/swiper.scss';
 import 'swiper/components/navigation/navigation.scss';
