@@ -6,7 +6,7 @@ import searchIcon from '../assets/svg/search.svg';
 import hamburgerMenu from '../assets/svg/hamburger.svg';
 
 export default function Header() {
-    const { theme, dispatch } = useContext(ThemeContext);
+    const { theme } = useContext(ThemeContext);
 
     return (
         <header id='header' style={{ background: theme.primaryColor }}>

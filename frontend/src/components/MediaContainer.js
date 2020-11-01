@@ -1,65 +1,65 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
+import MediaTile from './MediaTile';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation, Pagination } from 'swiper';
+import SwiperCore, { Navigation } from 'swiper';
 import { ThemeContext } from '../App';
 
-import Rambo from '../assets/mock-images/rambo.jpg';
-import Doom from '../assets/mock-images/Doom.webp';
-import JohnWick from '../assets/mock-images/john-wick.jpg';
-import Terminator from '../assets/mock-images/terminator-cover.jpg';
-import MenInBlack from '../assets/mock-images/mib.jpg';
+SwiperCore.use([Navigation]);
 
-import 'swiper/swiper.scss';
-import 'swiper/components/navigation/navigation.scss';
-import 'swiper/components/pagination/pagination.scss';
-import 'swiper/components/scrollbar/scrollbar.scss';
+function updateActiveSlideBorder(e) {
+    const activeSlide = e.slides[e.activeIndex];
 
-SwiperCore.use([Navigation, Pagination]);
+    const previousSlide = e.slides[e.activeIndex - 1];
+    const nextSlide = e.slides[e.activeIndex + 1];
 
-const mockMovies = [
-    {
-        title: 'Rambo First Blood',
-        img: Rambo,
-    },
-    {
-        title: 'The Terminator',
-        img: Terminator,
-    },
-    {
-        title: 'John Wick',
-        img: JohnWick,
-    },
-    {
-        title: 'Men In Black',
-        img: MenInBlack,
-    },
-    {
-        title: 'Doom',
-        img: Doom,
-    },
-];
+    activeSlide.style.border = `1px solid ${e.borderColor}`;
 
-export default function MediaContainer() {
-    const { theme, dispatch } = useContext(ThemeContext);
+    if (previousSlide) {
+        previousSlide.style.border = '';
+    }
+
+    if (nextSlide) {
+        nextSlide.style.border = '';
+    }
+}
+
+export default function MediaContainer({ media, category }) {
+    const { theme } = useContext(ThemeContext);
+    const swiperElement = useRef(null);
+
+    // Change Swiper's navigation button colors on theme update. Needed because swiper API (as far as I'm aware)
+    // doesn't give reference to elements color and can only be updated through css
+    useEffect(() => {
+        swiperElement.current.swiper.navigation.nextEl.style.color = theme.secondaryColor;
+        swiperElement.current.swiper.navigation.prevEl.style.color = theme.secondaryColor;
+
+        // Update active slide border color to current theme's secondary color on theme change
+        swiperElement.current.swiper.borderColor = theme.secondaryColor;
+        updateActiveSlideBorder(swiperElement.current.swiper);
+    }, [theme]);
 
     return (
-        <section id='media-container'>
+        <section className='media-container'>
+            {/* Shows category & option to view all movies of that category in a grid */}
             <div className='category-text'>
-                <h3 style={{ color: theme.primaryText }}>Action</h3>
+                <h3 style={{ color: theme.primaryText }}>{category}</h3>
                 <h4 style={{ color: theme.primaryText }}>View All</h4>
             </div>
 
+            {/* Horizontal Swiper */}
             <Swiper
                 spaceBetween={25}
-                slidesPerView={1}
+                slidesPerView={'auto'}
                 navigation
-                pagination={{ clickable: true }}
-                onSwiper={(swiper) => console.log(swiper)}
-                onSlideChange={() => console.log('slide change')}
+                // Only turns on looping if there's enough tiles, otherwise it shows duplicates
+                loop={media.length >= 5 ? true : false}
+                centeredSlides={true}
+                ref={swiperElement}
+                onSlideChange={(e) => updateActiveSlideBorder(e)}
             >
-                {mockMovies.map((movie) => (
-                    <SwiperSlide key={movie.title}>
-                        <img src={movie.img} alt='Movie Slide' />
+                {media.map((movie) => (
+                    <SwiperSlide key={movie.img}>
+                        <MediaTile image={movie.img} title={movie.title} />
                     </SwiperSlide>
                 ))}
             </Swiper>

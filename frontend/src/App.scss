@@ -19,6 +19,7 @@ h2 {
     font-size: 2.5rem;
     text-align: center;
     font-weight: 400;
+    color: white;
 }
 
 h3 {
@@ -84,14 +85,10 @@ h4 {
     display: flex;
 }
 
-.sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-}
-
 #app {
     height: 100vh;
+    display: flex;
+    flex-direction: column;
 
     #header {
         width: 100%;
@@ -161,35 +158,74 @@ h4 {
         }
     }
 
-    #media-container {
-        // background: grey;
+    #media-wrapper {
+        height: 15em;
         width: 90%;
-        height: 11em;
         margin: 2.5em auto 0 auto;
-
-        .category-text {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            h3 {
-                margin-bottom: 0.5em;
-            }
-
-            h4 {
-                cursor: pointer;
-            }
-        }
+        position: relative;
 
         .swiper-container {
             width: 100%;
             height: 100%;
+        }
 
-            .swiper-wrapper {
-                .swiper-slide {
-                    img {
-                        width: 100%;
-                        height: 100%;
+        .media-container {
+            // background: grey;
+            // width: 90%;
+            // height: 11em;
+            // margin: 2.5em auto 0 auto;
+
+            .category-text {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                h3 {
+                    // margin-bottom: 0.5em;
+                }
+
+                h4 {
+                    // cursor: pointer;
+                }
+            }
+
+            .swiper-container {
+                width: 100%;
+                height: 100%;
+
+                .swiper-wrapper {
+                    .swiper-slide {
+                        min-width: 336px;
+                        max-width: 336px;
+                        min-height: 150px;
+                        max-height: 150px;
+
+                        .media-tile {
+                            .media-info {
+                                position: absolute;
+                                width: 100%;
+                                height: 50px;
+                                z-index: 999;
+                                bottom: 0;
+                                background: rgba(0, 0, 0, 0.548);
+                                display: flex;
+                                align-items: center;
+
+                                h3 {
+                                    font-size: 1rem;
+                                    font-weight: 300;
+                                    margin-left: 1em;
+                                    margin-bottom: 0;
+                                    color: white;
+                                }
+                            }
+
+                            img {
+                                position: absolute;
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
                     }
                 }
             }

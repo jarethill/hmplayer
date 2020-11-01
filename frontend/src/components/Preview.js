@@ -7,7 +7,7 @@ import plusCircle from '../assets/svg/plus-circle.svg';
 import Rambo from '../assets/mock-images/rambo-bg.jpg';
 
 export default function Preview() {
-    const { theme, dispatch } = useContext(ThemeContext);
+    const { theme } = useContext(ThemeContext);
 
     return (
         <section id='preview'>
@@ -19,7 +19,7 @@ export default function Preview() {
 
             <div id='preview-container' className='container'>
                 {/* Movie Title */}
-                <h2 style={{ color: theme.primaryText }}>Rambo First Blood</h2>
+                <h2>Rambo First Blood</h2>
 
                 {/* Play & To List Buttons */}
                 <div id='preview-controls'>

@@ -1,8 +1,14 @@
 import React, { useReducer, useEffect } from 'react';
 import Header from './components/Header';
 import Preview from './components/Preview';
-import MediaContainer from './components/MediaContainer';
+import MediaWrapper from './components/MediaWrapper';
+
 import './App.scss';
+
+import 'swiper/swiper.scss';
+import 'swiper/components/navigation/navigation.scss';
+import 'swiper/components/pagination/pagination.scss';
+import 'swiper/components/scrollbar/scrollbar.scss';
 
 const themes = {
     dark: {
@@ -18,6 +24,7 @@ const themes = {
     light: {
         backgroundColor: '#fff',
         primaryColor: 'blue',
+        secondaryColor: 'yellow',
         primaryText: '#000',
         filterClass: 'black-filter',
     },
@@ -51,7 +58,7 @@ function App() {
             <section id='app'>
                 <Header />
                 <Preview />
-                <MediaContainer />
+                <MediaWrapper />
             </section>
         </ThemeContext.Provider>
     );
