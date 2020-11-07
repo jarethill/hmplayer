@@ -105,16 +105,16 @@ const categories = [
 export default function MediaWrapper() {
     return (
         <section id='media-wrapper'>
-            {/* Vertical swiper, used to browse categories */}
             <Swiper
                 direction={'vertical'}
-                spaceBetween={0}
+                spaceBetween={25}
                 slidesPerView={'auto'}
-                loop={false}
+                loop={true}
                 scrollbar={{ draggable: true }}
+                className='swiper-vertical'
             >
                 {categories.map((category) => (
-                    <SwiperSlide key={category.category}>
+                    <SwiperSlide key={category.category} className='swiper-horizontal'>
                         <MediaContainer category={category.category} media={category.media} />
                     </SwiperSlide>
                 ))}
