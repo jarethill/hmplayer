@@ -37,7 +37,7 @@ h4 {
 }
 
 .black-filter {
-    filter: invert(0%) sepia(83%) saturate(7500%) hue-rotate(210deg) brightness(115%) contrast(115%);
+    filter: invert(0%) sepia(57%) saturate(52%) hue-rotate(58deg) brightness(105%) contrast(90%);
 }
 
 .display-none {
@@ -134,9 +134,9 @@ h4 {
 
                 li > #category-nav {
                     display: none;
+                    margin-top: 1.5em;
 
                     a {
-                        color: white;
                         text-decoration: none;
                         font-size: 1.1rem;
                         font-weight: 300;
@@ -252,6 +252,7 @@ h4 {
                         max-width: 322px;
                         min-height: 150px;
                         max-height: 150px;
+                        cursor: pointer;
 
                         .media-tile {
                             .media-info {

@@ -14,7 +14,7 @@ function updateActiveSlideBorder(e) {
         slide.style.border = '';
 
         if (index === e.activeIndex) {
-            slide.style.border = `1px solid ${e.borderColor}`;
+            slide.style.border = `2px solid ${e.borderColor}`;
         }
     });
 }
@@ -38,8 +38,8 @@ export default function MediaContainer({ media, category }) {
         <section className='media-container'>
             {/* Shows category & option to view all movies of that category in a grid */}
             <div className='category-text'>
-                <h3 style={{ color: theme.primaryText }}>{category}</h3>
-                <h4 style={{ color: theme.primaryText }}>View All</h4>
+                <h3 style={{ color: theme.secondaryText }}>{category}</h3>
+                <h4 style={{ color: theme.secondaryText }}>View All</h4>
             </div>
 
             {/* Horizontal Swiper */}

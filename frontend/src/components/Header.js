@@ -38,13 +38,21 @@ export default function Header() {
                         <nav id='category-nav'>
                             <ul>
                                 <li>
-                                    <a href='/'>TV Shows</a>
+                                    <a href='/' style={{ color: theme.primaryText }}>
+                                        TV Shows
+                                    </a>
                                 </li>
+
                                 <li>
-                                    <a href='/'>Movies</a>
+                                    <a href='/' style={{ color: theme.primaryText }}>
+                                        Movies
+                                    </a>
                                 </li>
+
                                 <li>
-                                    <a href='/'>My List</a>
+                                    <a href='/' style={{ color: theme.primaryText }}>
+                                        My List
+                                    </a>
                                 </li>
                             </ul>
                         </nav>
